@@ -1,0 +1,118 @@
+/* Design tokens – the only place colours, radii, spacing, type sizes and shadows are defined.
+   Style of the C2 icon: black and white, one electric blue as the only accent; amber only for
+   warnings, red only for errors and "Delete". Two themes:
+   - extension pages (popup, report, welcome, print screen): light when the system asks for it
+     (prefers-color-scheme), dark otherwise – dark is the default;
+   - shadow roots on chat pages (toolbar, menus, popover, pills, prompts panel): the page's own theme,
+     set by the script as data-theme="light|dark" on the host (taken from the page background).
+   Every text/background pair used is checked for WCAG AA by tests/theme.test.ts. */
+:root,
+:host {
+  --ct-bg: #0b0b0c;
+  --ct-surface: #141416;          /* the icon's tile */
+  --ct-surface-raised: #1c1c1f;   /* menus, popover, pills, panel */
+  --ct-hover: #2a2a2f;            /* hovered menu item, list row, pressed button */
+  --ct-border: #34343a;
+  --ct-border-strong: #6e6e76;    /* the icon's hairline: borders that must show */
+  --ct-code-bg: #1c1c1f;          /* code, math, message headings on the print sheet */
+  --ct-warning-bg: #2b2210;       /* warning blocks (behind --ct-text) */
+  --ct-control-bg: #141416;       /* toolbar buttons; on chat pages the composer's own colour (ui/pageTheme.ts) */
+  --ct-control-border: #34343a;   /* toolbar buttons: must stand out on the page around the composer */
+  --ct-text: #f5f5f7;
+  --ct-text-muted: #a8a8b0;
+  --ct-accent: #1f6bff;           /* the only accent: primary buttons, focus, chosen items, the dot */
+  --ct-accent-text: #5b95ff;      /* the accent as text or icon */
+  --ct-on-accent: #ffffff;
+  --ct-warning: #f5a524;          /* warnings only: incomplete results, long conversations, duplicates */
+  --ct-warning-text: #f5c46b;
+  --ct-on-warning: #141414;
+  --ct-danger: #cf3a3f;           /* errors and "Delete" only */
+  --ct-danger-text: #ff8a8d;
+  --ct-on-danger: #ffffff;
+  --ct-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);  /* toolbar buttons */
+  --ct-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);                                   /* menus, popover, pills, cards */
+
+  --ct-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ct-font-size: 14px;
+  --ct-font-xs: 11px;
+  --ct-font-sm: 12px;
+  --ct-font-md: 13px;
+  --ct-font-lg: 16px;
+  --ct-radius-sm: 6px;    /* fields, menu items, small buttons */
+  --ct-radius: 10px;      /* menus, popover, cards */
+  --ct-radius-lg: 14px;   /* pages' main card, the rating question */
+  --ct-radius-pill: 999px; /* toolbar buttons, pills */
+  --ct-space-1: 4px;
+  --ct-space-2: 8px;
+  --ct-space-3: 12px;
+  --ct-space-4: 16px;
+  --ct-space-5: 24px;
+  --ct-transition: 120ms;
+  --ct-focus-ring: 0 0 0 2px var(--ct-bg), 0 0 0 4px var(--ct-accent);
+
+  color-scheme: dark;
+}
+
+/* Light theme – the same values in both blocks (the test checks they match): shadow hosts on chat
+   pages and any element marked light (the print sheet, which is paper on a dark screen too); extension
+   pages when the system asks for light, and every page in print. */
+:host([data-theme="light"]),
+[data-theme="light"] {
+  --ct-bg: #ffffff;
+  --ct-surface: #ffffff;
+  --ct-surface-raised: #ffffff;
+  --ct-hover: #efeff1;
+  --ct-border: #d4d4d8;
+  --ct-border-strong: #8e8e96;
+  --ct-code-bg: #f4f4f6;
+  --ct-warning-bg: #fff6e5;
+  --ct-control-bg: #ffffff;
+  --ct-control-border: #b4b4bc;
+  --ct-text: #111114;
+  --ct-text-muted: #5c5c66;
+  --ct-accent: #1f6bff;
+  --ct-accent-text: #1a5ee6;
+  --ct-on-accent: #ffffff;
+  --ct-warning: #9a5b00;
+  --ct-warning-text: #8a5200;
+  --ct-on-warning: #ffffff;
+  --ct-danger: #d1242f;
+  --ct-danger-text: #b3121b;
+  --ct-on-danger: #ffffff;
+  --ct-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.06);
+  --ct-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: light), print {
+  :root {
+    --ct-bg: #ffffff;
+    --ct-surface: #ffffff;
+    --ct-surface-raised: #ffffff;
+    --ct-hover: #efeff1;
+    --ct-border: #d4d4d8;
+    --ct-border-strong: #8e8e96;
+    --ct-code-bg: #f4f4f6;
+    --ct-warning-bg: #fff6e5;
+    --ct-control-bg: #ffffff;
+    --ct-control-border: #b4b4bc;
+    --ct-text: #111114;
+    --ct-text-muted: #5c5c66;
+    --ct-accent: #1f6bff;
+    --ct-accent-text: #1a5ee6;
+    --ct-on-accent: #ffffff;
+    --ct-warning: #9a5b00;
+    --ct-warning-text: #8a5200;
+    --ct-on-warning: #ffffff;
+    --ct-danger: #d1242f;
+    --ct-danger-text: #b3121b;
+    --ct-on-danger: #ffffff;
+    --ct-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.06);
+    --ct-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
+    color-scheme: light;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root,
+  :host { --ct-transition: 0ms; }
+}

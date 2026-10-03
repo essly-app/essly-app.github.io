@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Essly – Privacy policy</title>
+  <meta name="description" content="Privacy policy of the Essly extension: what it reads, what it stores (on your device only), what it never sends.">
+  <link rel="icon" href="../../icon32.png">
+  <link rel="alternate" hreflang="pl" href="../../privacy/">
+  <link rel="stylesheet" href="../../theme.css">
+  <link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <img src="../../icon32.png" srcset="../../icon32.png 1x, ../../icon128.png 4x" width="32" height="32" alt="">
+    <a class="name" href="../../" style="color: inherit; text-decoration: none">Essly</a>
+    <nav class="lang" aria-label="Language / Język"><a href="../../privacy/" hreflang="pl" lang="pl">Polski</a><span aria-current="page">English</span></nav>
+  </header>
+
+  <main>
+    <h1>Privacy policy</h1>
+    <p class="meta">Version 1 · effective 3 October 2026 · applies to the Essly extension for Chrome and Microsoft Edge</p>
+
+    <div class="summary">
+      <ul>
+        <li>Essly runs entirely in your browser. <strong>It has no server</strong>, collects no analytics, shows no ads and sells nothing.</li>
+        <li>Your conversations, prompts and settings <strong>stay on your device</strong>. The extension never sends them anywhere on its own.</li>
+        <li>The developer receives something only when <strong>you</strong> send a problem report or fill in the survey after uninstalling.</li>
+      </ul>
+    </div>
+
+    <h2 id="controller">1. Who is responsible for your data</h2>
+    <p>The data controller is the developer of the Essly extension (a private individual). Contact for all privacy matters: <a href="mailto:roouti12.dev@gmail.com">roouti12.dev@gmail.com</a>.</p>
+    <p>Essly is an independent extension. <strong>It is not affiliated with, endorsed or sponsored by Anthropic or OpenAI.</strong> Claude and ChatGPT are trademarks of their respective owners; the extension only works on the claude.ai and chatgpt.com websites.</p>
+
+    <h2 id="reads">2. What the extension reads</h2>
+    <p>The extension runs only on <code>claude.ai</code> and <code>chatgpt.com</code>. Everything below happens locally, in your browser:</p>
+    <ul>
+      <li><strong>The content of the open conversation</strong> – when you click Export or Essence, or when the counter measures the conversation's length. The extension fetches it with the same requests the site itself makes, using your signed-in session, or reads it from the visible page. The data flows only from the site's server to your browser.</li>
+      <li><strong>The text in the chat input before you send it</strong> – to show the message's approximate length ("+ N"). When you paste, the extension takes only the <em>length</em> of the pasted text, not its content.</li>
+      <li><strong>The chatgpt.com session token</strong> – when reading a conversation on chatgpt.com, the extension gets it from the site (as the site does itself), uses it for that one read and keeps it in memory only. It never stores it, logs it or sends it anywhere but chatgpt.com.</li>
+    </ul>
+
+    <h2 id="stores">3. What the extension stores – on your device only</h2>
+    <ul>
+      <li><strong>Extension storage on your device</strong> (<code>chrome.storage.local</code>): your prompt library, settings (language, last export format, thinking summaries), the state of the feedback request (only counts of successful uses and dates, no content) and a flag that the welcome page was shown.</li>
+      <li><strong>Storage for the browser session</strong> (<code>chrome.storage.session</code>): a document to print – deleted as soon as the print tab opens it; an essence package – picked up once by the new chat tab and valid for at most 2 minutes.</li>
+      <li><strong>The site tab's storage</strong>: a trace of the essence package on chatgpt.com (only its size and approximate token count, no content) and developer switches that can be turned on by hand in the browser console.</li>
+      <li><strong>Export files</strong> (Markdown, PDF, Word) are saved by you to your own disk. <strong>Clipboard</strong>: the extension only writes to it after your click and never reads it.</li>
+    </ul>
+    <p>Removing the extension deletes its storage. You can export your prompt library to a JSON file or delete it in the panel at any time.</p>
+
+    <h2 id="never">4. What the extension never sends</h2>
+    <p>The extension sends nobody – neither the developer nor anyone else – the content of your conversations, your prompts, the text in the chat input, full page addresses, browsing history, tokens or conversation identifiers. There is no background polling and no "phoning home".</p>
+
+    <h2 id="report">5. "Report a problem"</h2>
+    <p>In the extension's popup you can prepare a problem report. <strong>Before sending you see the whole text and can change it.</strong> The report leaves only after your click – through your own e-mail (Gmail in a new tab or your mail program) – or not at all, if you only copy it.</p>
+    <p>Its technical part contains: the extension version, browser and operating system, the extension's and the browser's language, the time of the report, how much extension storage is used and the number of prompts (not their content), <strong>the host of the active tab (e.g. claude.ai), without the full address</strong>, the number of messages in the conversation, whether a reply is being generated, the toolbar's position and the latest entries of the extension's technical log (no conversation content; identifiers masked).</p>
+    <p>By sending the report by e-mail you also give the developer <strong>your e-mail address</strong> and whatever you write. They are used only to reply and fix the problem. Report e-mails are kept for <strong>12 months</strong> and then deleted (earlier on request).</p>
+
+    <h2 id="survey">6. Uninstall survey</h2>
+    <p>When the extension is removed, the browser opens a short, optional survey in Google Forms (in Polish or English, matching the extension's language). The extension adds only three facts to its address: <strong>the extension version, the browser name with its major version (e.g. "Edge 154") and the extension language (pl or en)</strong>. These fields are visible in the form and you can clear them before sending.</p>
+    <p>No conversation content, page addresses, prompts, identifiers or e-mail address are sent. The form does not collect e-mail addresses and needs no sign-in. Answers go only to the developer (a Google Sheet on the support account) and are used only to improve the extension; they are kept for <strong>24 months</strong>. If you don't want to answer, just close the tab – nothing is sent.</p>
+
+    <h2 id="permissions">7. Extension permissions</h2>
+    <ul>
+      <li><code>storage</code> – saving the prompt library and settings on your device.</li>
+      <li>A script on <code>https://claude.ai/*</code> and <code>https://chatgpt.com/*</code> – buttons next to the chat input, reading the open conversation on your request, inserting a prompt at the cursor. The extension does not run on any other site.</li>
+    </ul>
+    <p>The extension asks for no other permissions: no access to tabs and history (<code>tabs</code>), downloads (<code>downloads</code>), reading the clipboard (<code>clipboardRead</code>), injecting scripts (<code>scripting</code>) or other websites.</p>
+
+    <h2 id="third-parties">8. Other companies' services</h2>
+    <p>The extension uses no analytics or advertising services. You use Google services only when you choose to: Gmail (sending a report) and Google Forms (the survey) – Google's privacy policy applies then. claude.ai and chatgpt.com have their own privacy policies; the extension changes nothing about them.</p>
+
+    <h2 id="limited-use">9. Chrome Web Store compliance</h2>
+    <p>The use of information received from users adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+    <p>Data handled by the extension is used only for its features described above. It is not sold, not transferred for advertising or creditworthiness assessment, and not used for any purpose unrelated to the extension.</p>
+
+    <h2 id="rights">10. Your rights</h2>
+    <p>You have the right to access, correct and delete your data, to restrict its processing and to object – write to <a href="mailto:roouti12.dev@gmail.com">roouti12.dev@gmail.com</a>. Report data is processed on the basis of Art. 6(1)(f) GDPR (replying to your report and fixing the extension). You may also lodge a complaint with a data protection authority (in Poland: the President of the Personal Data Protection Office, UODO).</p>
+
+    <h2 id="changes">11. Changes to this policy</h2>
+    <p>Every change gets a new version and date at the top of this page; important changes are listed here.</p>
+    <ul><li>Version 1 (3 October 2026) – first version.</li></ul>
+
+    <h2 id="details">Technical details</h2>
+    <p>The full list for anyone who wants to check the extension. The extension's tests make sure this list matches the code.</p>
+    <h3>Manifest permissions</h3>
+    <div class="table"><table>
+      <tr><th>Entry</th><th>What for</th></tr>
+      <tr><td><code>permissions</code>: <code>storage</code></td><td>extension storage on your device</td></tr>
+      <tr><td><code>content_scripts</code>: <code>https://claude.ai/*</code>, <code>https://chatgpt.com/*</code></td><td>toolbar next to the chat input, reading the conversation, inserting prompts</td></tr>
+      <tr><td><code>host_permissions</code>, <code>web_accessible_resources</code></td><td>none</td></tr>
+    </table></div>
+    <h3>Storage keys</h3>
+    <div class="table"><table>
+      <tr><th>Where</th><th>Key</th><th>Content</th></tr>
+      <tr><td><code>chrome.storage.local</code></td><td><code>prompts</code></td><td>prompt library</td></tr>
+      <tr><td><code>chrome.storage.local</code></td><td><code>settings</code></td><td>language, last export format, thinking summaries</td></tr>
+      <tr><td><code>chrome.storage.local</code></td><td><code>feedback</code></td><td>counts of successful uses, dates, answer to the feedback request</td></tr>
+      <tr><td><code>chrome.storage.local</code></td><td><code>welcomeShown</code></td><td>whether the welcome page was shown</td></tr>
+      <tr><td><code>chrome.storage.session</code></td><td><code>print:</code>…, <code>print-opened:</code>…, <code>print-tab</code>, <code>print-dialog</code></td><td>document to print (deleted after reading) and which tab prints</td></tr>
+      <tr><td><code>chrome.storage.session</code></td><td><code>essence:</code>…, <code>essence-opened:</code>…</td><td>essence package for the new tab (one-time, up to 2 min)</td></tr>
+      <tr><td>site tab storage (sessionStorage)</td><td><code>chat-toolkit:handoff</code></td><td>size of the essence package, no content</td></tr>
+      <tr><td>site storage (localStorage)</td><td><code>chat-toolkit:debug</code>, <code>chat-toolkit:force-dom</code>, <code>chat-toolkit:feedback-test</code>, <code>chat-toolkit:feedback-reset</code></td><td>developer switches, set by hand only</td></tr>
+    </table></div>
+    <h3>Network requests</h3>
+    <div class="table"><table>
+      <tr><th>To</th><th>Address</th><th>When</th></tr>
+      <tr><td><code>claude.ai</code></td><td><code>/api/organizations</code>, <code>/api/organizations/</code>…<code>/chat_conversations/</code>…</td><td>reading the open conversation (export, essence, counter)</td></tr>
+      <tr><td><code>chatgpt.com</code></td><td><code>/api/auth/session</code>, <code>/backend-api/conversation/</code>…, <code>/backend-api/conversations/</code>…</td><td>reading the open conversation (export, essence, counter)</td></tr>
+      <tr><td>the extension itself</td><td><code>fonts/</code>…</td><td>PDF fonts from the extension package, no network</td></tr>
+    </table></div>
+    <h3>Pages the extension opens</h3>
+    <p>Only after your click: a new chat (<code>claude.ai</code>, <code>chatgpt.com</code>) for the essence, a report e-mail (<code>mail.google.com</code> or <code>mailto:</code>), the extension's store page (<code>chromewebstore.google.com</code>, <code>microsoftedge.microsoft.com</code>). After uninstalling, the browser opens the survey (<code>docs.google.com</code>).</p>
+  </main>
+
+  <footer>Essly · <a href="mailto:roouti12.dev@gmail.com">roouti12.dev@gmail.com</a> · <a href="../../privacy/" hreflang="pl" lang="pl">Wersja polska</a></footer>
+</div>
+</body>
+</html>

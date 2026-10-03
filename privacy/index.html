@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Essly – polityka prywatności</title>
+  <meta name="description" content="Polityka prywatności wtyczki Essly: co czyta, co zapisuje (tylko lokalnie), czego nigdy nie wysyła.">
+  <link rel="icon" href="../icon32.png">
+  <link rel="alternate" hreflang="en" href="../en/privacy/">
+  <link rel="stylesheet" href="../theme.css">
+  <link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <img src="../icon32.png" srcset="../icon32.png 1x, ../icon128.png 4x" width="32" height="32" alt="">
+    <a class="name" href="../" style="color: inherit; text-decoration: none">Essly</a>
+    <nav class="lang" aria-label="Język / Language"><span aria-current="page">Polski</span><a href="../en/privacy/" hreflang="en" lang="en">English</a></nav>
+  </header>
+
+  <main>
+    <h1>Polityka prywatności</h1>
+    <p class="meta">Wersja 1 · obowiązuje od 3 października 2026 · dotyczy wtyczki Essly dla Chrome i Microsoft Edge</p>
+
+    <div class="summary">
+      <ul>
+        <li>Essly działa w całości w twojej przeglądarce. <strong>Nie ma serwera</strong>, nie zbiera statystyk, nie pokazuje reklam i niczego nie sprzedaje.</li>
+        <li>Twoje rozmowy, prompty i ustawienia <strong>zostają na twoim urządzeniu</strong>. Wtyczka nigdy sama ich nigdzie nie wysyła.</li>
+        <li>Do twórcy trafia coś tylko wtedy, gdy <strong>sam</strong> wyślesz zgłoszenie problemu albo wypełnisz ankietę po odinstalowaniu.</li>
+      </ul>
+    </div>
+
+    <h2 id="administrator">1. Kto odpowiada za dane</h2>
+    <p>Administratorem danych jest twórca wtyczki Essly (osoba prywatna). Kontakt we wszystkich sprawach prywatności: <a href="mailto:roouti12.dev@gmail.com">roouti12.dev@gmail.com</a>.</p>
+    <p>Essly to niezależna wtyczka. <strong>Nie jest powiązana z Anthropic ani OpenAI</strong> i nie jest przez nie wspierana. Claude i ChatGPT to znaki towarowe ich właścicieli; wtyczka tylko działa na stronach claude.ai i chatgpt.com.</p>
+
+    <h2 id="czyta">2. Co wtyczka czyta</h2>
+    <p>Wtyczka działa wyłącznie na <code>claude.ai</code> i <code>chatgpt.com</code>. Wszystko poniżej dzieje się lokalnie, w twojej przeglądarce:</p>
+    <ul>
+      <li><strong>Treść otwartej rozmowy</strong> – gdy klikasz Eksport lub Esencję albo gdy licznik liczy długość rozmowy. Wtyczka pobiera ją tymi samymi żądaniami co sama strona, z twoją zalogowaną sesją, albo odczytuje z widocznej strony. Dane płyną tylko z serwera strony do twojej przeglądarki.</li>
+      <li><strong>Tekst w polu czatu przed wysłaniem</strong> – żeby pokazać przybliżoną długość wiadomości („+ N”). Przy wklejaniu wtyczka bierze tylko <em>długość</em> wklejonego tekstu, nie jego treść.</li>
+      <li><strong>Token sesji chatgpt.com</strong> – przy odczycie rozmowy na chatgpt.com wtyczka pobiera go ze strony (tak jak strona robi to sama), używa go do tego jednego odczytu i trzyma tylko w pamięci. Nigdy go nie zapisuje, nie loguje ani nie wysyła nigdzie poza chatgpt.com.</li>
+    </ul>
+
+    <h2 id="zapisuje">3. Co wtyczka zapisuje – tylko lokalnie</h2>
+    <ul>
+      <li><strong>Pamięć wtyczki na urządzeniu</strong> (<code>chrome.storage.local</code>): twoja biblioteka promptów, ustawienia (język, ostatni format eksportu, streszczenia myślenia), stan prośby o opinię (tylko liczniki udanych użyć i daty, bez treści) i znacznik, że powitanie zostało pokazane.</li>
+      <li><strong>Pamięć na czas sesji przeglądarki</strong> (<code>chrome.storage.session</code>): dokument do druku – usuwany zaraz po otwarciu karty druku; pakiet esencji – odbierany jednorazowo przez nową kartę czatu i ważny najwyżej 2 minuty.</li>
+      <li><strong>Pamięć karty strony</strong>: ślad pakietu esencji na chatgpt.com (tylko rozmiar i przybliżona liczba tokenów, bez treści) oraz przełączniki deweloperskie, które można włączyć ręcznie w konsoli przeglądarki.</li>
+      <li><strong>Pliki eksportu</strong> (Markdown, PDF, Word) zapisujesz sam na swoim dysku. <strong>Schowek</strong>: wtyczka tylko zapisuje do niego po twoim kliknięciu i nigdy go nie czyta.</li>
+    </ul>
+    <p>Usunięcie wtyczki usuwa jej pamięć. Bibliotekę promptów możesz w każdej chwili wyeksportować do pliku JSON albo usunąć w panelu.</p>
+
+    <h2 id="nie-wysyla">4. Czego wtyczka nigdy nie wysyła</h2>
+    <p>Wtyczka nie wysyła nikomu – ani twórcy, ani nikomu innemu – treści twoich rozmów, promptów, tekstu z pola czatu, pełnych adresów stron, historii przeglądania, tokenów ani identyfikatorów rozmów. Nie ma żadnego odpytywania w tle ani „telefonowania do domu”.</p>
+
+    <h2 id="zglos">5. „Zgłoś problem”</h2>
+    <p>W okienku wtyczki możesz przygotować zgłoszenie problemu. <strong>Przed wysłaniem widzisz cały tekst i możesz go zmienić.</strong> Zgłoszenie wychodzi dopiero po twoim kliknięciu – przez twoją pocztę (Gmail w nowej karcie albo twój program pocztowy) – albo wcale, jeśli tylko je skopiujesz.</p>
+    <p>Część techniczna zawiera: wersję wtyczki, przeglądarkę i system, język wtyczki i przeglądarki, czas zgłoszenia, zajętość pamięci wtyczki i liczbę promptów (bez ich treści), <strong>host aktywnej karty (np. claude.ai), bez pełnego adresu</strong>, liczbę wiadomości w rozmowie, informację o trwającym generowaniu, położenie paska wtyczki oraz ostatnie wpisy technicznego dziennika wtyczki (bez treści rozmów; identyfikatory zamaskowane).</p>
+    <p>Wysyłając zgłoszenie e-mailem, przekazujesz twórcy także <strong>swój adres e-mail</strong> i to, co sam napiszesz. Służą wyłącznie do odpowiedzi i naprawy problemu. Wiadomości ze zgłoszeniami przechowujemy <strong>12 miesięcy</strong>, potem je usuwamy (wcześniej – na twoją prośbę).</p>
+
+    <h2 id="ankieta">6. Ankieta po odinstalowaniu</h2>
+    <p>Po usunięciu wtyczki przeglądarka otwiera krótką, dobrowolną ankietę w Formularzach Google (po polsku albo po angielsku – zależnie od języka wtyczki). Wtyczka dokleja do jej adresu tylko trzy informacje: <strong>wersję wtyczki, nazwę przeglądarki z numerem głównej wersji (np. „Edge 154”) i język wtyczki (pl lub en)</strong>. Te pola są w formularzu widoczne i możesz je usunąć przed wysłaniem.</p>
+    <p>Nie są przesyłane treści rozmów, adresy stron, prompty, identyfikatory ani adres e-mail. Formularz nie zbiera adresów e-mail i nie wymaga logowania. Odpowiedzi trafiają tylko do twórcy (arkusz Google na koncie wsparcia) i służą wyłącznie do poprawiania wtyczki; przechowujemy je <strong>24 miesiące</strong>. Jeśli nie chcesz odpowiadać, po prostu zamknij kartę – nic nie zostanie wysłane.</p>
+
+    <h2 id="uprawnienia">7. Uprawnienia wtyczki</h2>
+    <ul>
+      <li><code>storage</code> – zapis biblioteki promptów i ustawień na twoim urządzeniu.</li>
+      <li>Skrypt na stronach <code>https://claude.ai/*</code> i <code>https://chatgpt.com/*</code> – przyciski przy polu czatu, odczyt otwartej rozmowy na twoje żądanie, wstawianie promptu w miejscu kursora. Wtyczka nie działa na żadnych innych stronach.</li>
+    </ul>
+    <p>Wtyczka nie prosi o inne uprawnienia: nie ma dostępu do kart i historii (<code>tabs</code>), pobierania (<code>downloads</code>), czytania schowka (<code>clipboardRead</code>), wstrzykiwania skryptów (<code>scripting</code>) ani do innych stron.</p>
+
+    <h2 id="inne">8. Usługi innych firm</h2>
+    <p>Wtyczka nie używa żadnych usług analitycznych ani reklamowych. Z usług Google korzystasz tylko wtedy, gdy sam je wybierzesz: Gmail (wysyłka zgłoszenia) i Formularze Google (ankieta) – obowiązują wtedy zasady prywatności Google. Strony claude.ai i chatgpt.com mają własne polityki prywatności; wtyczka niczego w nich nie zmienia.</p>
+
+    <h2 id="limited-use">9. Zgodność z zasadami Chrome Web Store</h2>
+    <p lang="en">The use of information received from users adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+    <p>Dane obsługiwane przez wtyczkę służą wyłącznie jej funkcjom opisanym wyżej. Nie są sprzedawane, przekazywane do reklamy, oceny zdolności kredytowej ani w innych celach niezwiązanych z wtyczką.</p>
+
+    <h2 id="prawa">10. Twoje prawa</h2>
+    <p>Masz prawo dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania i sprzeciwu – napisz na <a href="mailto:roouti12.dev@gmail.com">roouti12.dev@gmail.com</a>. Dane ze zgłoszeń przetwarzamy na podstawie art. 6 ust. 1 lit. f RODO (odpowiedź na twoje zgłoszenie i naprawa wtyczki). Masz też prawo wnieść skargę do Prezesa Urzędu Ochrony Danych Osobowych.</p>
+
+    <h2 id="zmiany">11. Zmiany polityki</h2>
+    <p>Każda zmiana dostaje nową wersję i datę na górze tej strony; istotne zmiany opisujemy tutaj.</p>
+    <ul><li>Wersja 1 (3 października 2026) – pierwsza wersja.</li></ul>
+
+    <h2 id="szczegoly">Szczegóły techniczne</h2>
+    <p>Pełna lista dla osób, które chcą sprawdzić wtyczkę. Testy wtyczki pilnują, żeby ta lista zgadzała się z kodem.</p>
+    <h3>Uprawnienia z manifestu</h3>
+    <div class="table"><table>
+      <tr><th>Wpis</th><th>Po co</th></tr>
+      <tr><td><code>permissions</code>: <code>storage</code></td><td>pamięć wtyczki na urządzeniu</td></tr>
+      <tr><td><code>content_scripts</code>: <code>https://claude.ai/*</code>, <code>https://chatgpt.com/*</code></td><td>pasek przy polu czatu, odczyt rozmowy, wstawianie promptów</td></tr>
+      <tr><td><code>host_permissions</code>, <code>web_accessible_resources</code></td><td>brak</td></tr>
+    </table></div>
+    <h3>Klucze pamięci</h3>
+    <div class="table"><table>
+      <tr><th>Gdzie</th><th>Klucz</th><th>Zawartość</th></tr>
+      <tr><td><code>chrome.storage.local</code></td><td><code>prompts</code></td><td>biblioteka promptów</td></tr>
+      <tr><td><code>chrome.storage.local</code></td><td><code>settings</code></td><td>język, ostatni format eksportu, streszczenia myślenia</td></tr>
+      <tr><td><code>chrome.storage.local</code></td><td><code>feedback</code></td><td>liczniki udanych użyć, daty, odpowiedź na prośbę o opinię</td></tr>
+      <tr><td><code>chrome.storage.local</code></td><td><code>welcomeShown</code></td><td>czy powitanie było pokazane</td></tr>
+      <tr><td><code>chrome.storage.session</code></td><td><code>print:</code>…, <code>print-opened:</code>…, <code>print-tab</code>, <code>print-dialog</code></td><td>dokument do druku (usuwany po odczycie) i która karta drukuje</td></tr>
+      <tr><td><code>chrome.storage.session</code></td><td><code>essence:</code>…, <code>essence-opened:</code>…</td><td>pakiet esencji dla nowej karty (jednorazowy, do 2 min)</td></tr>
+      <tr><td>pamięć karty strony (sessionStorage)</td><td><code>chat-toolkit:handoff</code></td><td>rozmiar pakietu esencji, bez treści</td></tr>
+      <tr><td>pamięć strony (localStorage)</td><td><code>chat-toolkit:debug</code>, <code>chat-toolkit:force-dom</code>, <code>chat-toolkit:feedback-test</code>, <code>chat-toolkit:feedback-reset</code></td><td>przełączniki deweloperskie, ustawiane tylko ręcznie</td></tr>
+    </table></div>
+    <h3>Żądania sieciowe</h3>
+    <div class="table"><table>
+      <tr><th>Do</th><th>Adres</th><th>Kiedy</th></tr>
+      <tr><td><code>claude.ai</code></td><td><code>/api/organizations</code>, <code>/api/organizations/</code>…<code>/chat_conversations/</code>…</td><td>odczyt otwartej rozmowy (eksport, esencja, licznik)</td></tr>
+      <tr><td><code>chatgpt.com</code></td><td><code>/api/auth/session</code>, <code>/backend-api/conversation/</code>…, <code>/backend-api/conversations/</code>…</td><td>odczyt otwartej rozmowy (eksport, esencja, licznik)</td></tr>
+      <tr><td>sama wtyczka</td><td><code>fonts/</code>…</td><td>czcionki do PDF z paczki wtyczki, bez sieci</td></tr>
+    </table></div>
+    <h3>Strony otwierane przez wtyczkę</h3>
+    <p>Tylko po twoim kliknięciu: nowy czat (<code>claude.ai</code>, <code>chatgpt.com</code>) przy esencji, wiadomość ze zgłoszeniem (<code>mail.google.com</code> albo <code>mailto:</code>), strona wtyczki w sklepie (<code>chromewebstore.google.com</code>, <code>microsoftedge.microsoft.com</code>). Po odinstalowaniu przeglądarka otwiera ankietę (<code>docs.google.com</code>).</p>
+  </main>
+
+  <footer>Essly · <a href="mailto:roouti12.dev@gmail.com">roouti12.dev@gmail.com</a> · <a href="../en/privacy/" hreflang="en" lang="en">English version</a></footer>
+</div>
+</body>
+</html>
